@@ -63,15 +63,16 @@ function loadShoppingBasket() {
         
         shoppingBasket.innerHTML += `
         <div class="basketmenu">
-        <p>${basketamounts}</p>
+        <p>${basketamounts}x</p>
         <p>${basketmenu}<p>
         <p>${basketprices}€</p>
         
         ${menuSum(basketprices,basketamounts)}€
+        <img src="./img/minus.png" onclick="decreaseQuantity(${i})" alt="">
+        <img src="./img/add.png" onclick="increaseQuantity(${i})" alt="">
+        <img src="./img/trash.png" onclick="removeItem(${i})" alt="">
         </div>
-        <button onclick="decreaseQuantity(${i})">-</button>
-                <button onclick="increaseQuantity(${i})">+</button>
-                <button onclick="removeItem(${i})">Remove</button>
+        
         `
         shoppingBasket.innerHTML += ``;
        
