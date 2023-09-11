@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: orange;
+  color: white;
+  box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.icons img {
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.flag {
+  border-radius: 30px;
+}
+
+.shoppingBasket {
+  position: sticky;
+
+  top: 0px;
+  width: 17.2%;
+
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.restaurant-bilder {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+}
+
+.restaurant-header {
+  width: 100%;
+}
+
+.restaurant-header img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.restaurant-logo img {
+  height: 100px;
+  width: 100px;
+  border-radius: 80px;
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  top: 35%;
+  right: 55%;
+  box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurant-buttons {
+  display: flex;
+  margin-right: 20px;
+}
+
+.restaurant-buttons img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.restaurant-name {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.restaurant-name h2 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.categories {
+  background-color: rgba(211, 211, 211, 0.37);
+  height: 60px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.categories h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.speisekarte {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: 30px;
+}
+
+.menubox {
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+.menubox img {
+  height: 20px;
+  width: 20px;
+}
+
+.menubox-under {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.basketmenu {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.main {
+  width: 80%;
+  height: 150vh;
+}
+
+.sidebar {
+  width: 25%;
+  height: 95vh;
+}
