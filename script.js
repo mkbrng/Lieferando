@@ -46,6 +46,8 @@ function addMenu(food,price) {
         amounts[menuIndex]++;
     }
     loadShoppingBasket()
+    loadShoppingBasketpreview();
+    loadShoppingbasketSmall()
 }
 
 function getMenuIndex(food) {
@@ -55,35 +57,42 @@ function getMenuIndex(food) {
 function loadShoppingBasket() {
     let shoppingBasket = document.getElementById('shoppingBasket');
     shoppingBasket.innerHTML =''
-    for (let i = 0; i < shoppingBasketMenu.length; i++) {
-        const basketmenu = shoppingBasketMenu[i];
-        const basketprices = shoppingBasketprices[i].toFixed(2);
-        const basketamounts = amounts[i];
-        
+    if (shoppingBasketMenu.length == 0) {
+        document.getElementById('shoppingBasket').innerHTML = `<h3>Warenkorb</h3>
+        <p>Wähle leckere Gerichte aus der Karte und bestelle Dein Menü.</p>`
+    } else {
+        for (let i = 0; i < shoppingBasketMenu.length; i++) {
+            const basketmenu = shoppingBasketMenu[i];
+            const basketprices = shoppingBasketprices[i].toFixed(2);
+            const basketamounts = amounts[i];
+            
+            
+            shoppingBasket.innerHTML += `
+            <div class="basketmenu">
+            <p>${basketamounts}x</p>
+            <p>${basketmenu}<p>
+            
+            
+           <p> ${menuSum(basketprices,basketamounts)}€</p>
+            <img src="./img/minus.png" onclick="decreaseQuantity(${i})" alt="">
+            <img src="./img/add.png" onclick="increaseQuantity(${i})" alt="">
+            <img src="./img/trash.png" onclick="removeItem(${i})" alt="">
+            </div>
+            
+            `
+            shoppingBasket.innerHTML += ``;
+           
+        }
         
         shoppingBasket.innerHTML += `
-        <div class="basketmenu">
-        <p>${basketamounts}x</p>
-        <p>${basketmenu}<p>
-        <p>${basketprices}€</p>
-        
-        ${menuSum(basketprices,basketamounts)}€
-        <img src="./img/minus.png" onclick="decreaseQuantity(${i})" alt="">
-        <img src="./img/add.png" onclick="increaseQuantity(${i})" alt="">
-        <img src="./img/trash.png" onclick="removeItem(${i})" alt="">
-        </div>
-        
-        `
-        shoppingBasket.innerHTML += ``;
-       
+            <div class="total-sum">
+                <h2>Bezahlen</h2>
+                <p>${finalSum()}€</p>
+            </div>
+        `;
     }
     
-    shoppingBasket.innerHTML += `
-        <div class="total-sum">
-            <h2>Total Sum</h2>
-            <p>${finalSum()}€</p>
-        </div>
-    `;
+    
 }
 
 function menuSum(basketprices,basketamounts) {
@@ -106,12 +115,17 @@ function decreaseQuantity(index) {
     if (amounts[index] > 1) {
         amounts[index]--;
         loadShoppingBasket();
+        loadShoppingBasketpreview()
+        loadShoppingbasketSmall()
     }
+    
 }
 
 function increaseQuantity(index) {
     amounts[index]++;
     loadShoppingBasket();
+    loadShoppingBasketpreview();
+    loadShoppingbasketSmall()
 }
 
 function removeItem(index) {
@@ -119,4 +133,58 @@ function removeItem(index) {
     shoppingBasketprices.splice(index, 1);
     amounts.splice(index, 1);
     loadShoppingBasket();
+    loadShoppingBasketpreview();
+    loadShoppingbasketSmall()
+    
 }
+
+function loadShoppingBasketpreview() {
+    let shoppingBasketpreview = document.getElementById('shoppingBasketpreview');
+    
+    shoppingBasketpreview.innerHTML = `<div class="shoppingBasketpreviewAmount">Warenkorb ${finalSum()}€</div>`;
+}
+
+function showShoppingbasketSmall() {
+    document.getElementById('shoppingBasketSmall').classList.remove('d-none');
+}
+
+function closeShoppingbasketSmall() {
+    document.getElementById('shoppingBasketSmall').classList.add('d-none');
+}
+
+function loadShoppingbasketSmall() {
+    let shoppingBasket = document.getElementById('shoppingBasketSmall');
+    shoppingBasket.innerHTML =''
+    
+        for (let i = 0; i < shoppingBasketMenu.length; i++) {
+            const basketmenu = shoppingBasketMenu[i];
+            const basketprices = shoppingBasketprices[i].toFixed(2);
+            const basketamounts = amounts[i];
+            
+            
+            shoppingBasket.innerHTML += `
+            <div class="smallbasketmenu">
+            <p>${basketamounts}x</p>
+            <p>${basketmenu}<p>
+            
+            
+           <p> ${menuSum(basketprices,basketamounts)}€</p>
+            <img src="./img/minus.png" onclick="decreaseQuantity(${i})" alt="">
+            <img src="./img/add.png" onclick="increaseQuantity(${i})" alt="">
+            <img src="./img/trash.png" onclick="removeItem(${i})" alt="">
+            </div>
+            
+            `
+            shoppingBasket.innerHTML += ``;
+           
+        }
+        
+        shoppingBasket.innerHTML += `
+            <div class="small-total-sum">
+                <h2>Bezahlen</h2>
+                <p>${finalSum()}€</p>
+            </div>
+            <img class="close-btn" onclick=${"closeShoppingbasketSmall()"} src="./img/close.png"/>
+        `;
+    }
+    

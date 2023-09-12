@@ -35,6 +35,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   text-align: center;
   box-shadow: -2px 0px 6px 0px rgba(0, 0, 0, 0.2);
   background-color: #f2f2f2;
@@ -142,10 +143,10 @@ nav {
 }
 
 .basketmenu {
-  gap: 20px;
+  gap: 15px;
   display: flex;
   align-items: center;
-  justify-content: baseline;
+  justify-content: flex-end;
 }
 
 .basketmenu img {
@@ -166,4 +167,127 @@ nav {
 .sidebar {
   width: 25%;
   height: 95vh;
+}
+
+.total-sum {
+  border: 1px solid orange;
+  border-radius: 30px;
+  padding: 5px;
+  background-color: orange;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.shoppingBasketpreview {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoppingBasketpreviewAmount {
+  background-color: orange;
+  border: 1px solid orange;
+  border-radius: 30px;
+  padding: 5px;
+  background-color: orange;
+  min-width: 20%;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  display: none;
+}
+
+.shoppingBasketSmall {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallbasketmenu {
+  display: flex;
+  margin: 0;
+  gap: 20px;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoppingBasketSmall img {
+  height: 20px;
+  width: 20px;
+}
+
+.d-none {
+  display: none;
+}
+
+.small-total-sum {
+  border: 1px solid orange;
+  border-radius: 30px;
+  padding: 5px;
+  background-color: orange;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+.close-btn {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+}
+
+@media (max-width: 950px) {
+  .shoppingBasketpreviewAmount {
+    display: flex;
+  }
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .speisekarte {
+    margin: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .media600 {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .categories {
+    display: none;
+  }
+
+  .media300 {
+    display: none;
+  }
 }
